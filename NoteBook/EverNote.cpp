@@ -47,6 +47,7 @@ template <typename T>
 				students[j] = tmp;
 			}
 	}
+
 	//Возвращает 1 - если удалено и из students и из teAachers
 	//return 0 - удален
 	// return -1 никто не удален
@@ -127,6 +128,49 @@ template <typename T>
 			return personst;	
 		
 	}
+	
+	template<typename T>
+	void EverNote<T>::SortStudents(T(*predicate)(Student<T>))//можно отрифакторить, если вспомнить		
+	{
+int i, j, step;
+		Student<T> tmp;
+		int n = students.size();
+		for (step = n / 2; step > 0; step /= 2)
+			for (i = step; i < n; i++)
+			{
+				tmp = students[i];
+				for (j = i; j >= step; j -= step)
+				{
+					if (compareStrings (predicate(tmp), predicate(students[j - step]))==-1)
+						students[j] = students[j - step];
+					else
+						break;
+				}
+				students[j] = tmp;
+			}
+	}
+
+	template<typename T>
+	void EverNote<T>::SortTeachers(T(*predicate)(Teacher<T>))
+	{
+		int i, j, step;
+		Teacher<T> tmp;
+		int n = teachers.size();
+		for (step = n / 2; step > 0; step /= 2)
+			for (i = step; i < n; i++)
+			{
+				tmp = teachers[i];
+				for (j = i; j >= step; j -= step)
+				{
+					if (compareStrings(predicate(tmp), predicate(teachers[j - step])) == -1)
+						teachers[j] = teachers[j - step];
+					else
+						break;
+				}
+				teachers[j] = tmp;
+			}
+	}
+
 	//<summary>возвращает вектор объектов с заданной фамилией< / summary>
 	template <typename T>
 	vector<Person<T>> EverNote<T>::FindPersonByLastname(string lastName) {
