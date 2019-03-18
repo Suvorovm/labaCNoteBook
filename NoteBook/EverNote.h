@@ -4,6 +4,7 @@
 #include "Student.h"
 #include "Teacher.h"
 #include "TypePerson.h"
+#include <functional>
 using namespace std;
 template <typename T>
  class EverNote {
@@ -19,6 +20,11 @@ public:
 //	EverNote(Person person);
 	bool IsEmpty();
 	void SortByNameStudents();
+
+	void SortStudents(T (*predicate)(Student<T>));//делегаты
+	void SortTeachers(T(*predicate)(Teacher<T>));
+
+
 	vector<Person<T>> FindPersonByLastname(std::string lastName);
 	vector<Person<T>> FindPersonByName(std::string name);
 	void SortByNameTeachers();
