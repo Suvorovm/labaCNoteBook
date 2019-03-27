@@ -135,12 +135,19 @@ template <typename T>
 int i, j, step;
 		Student<T> tmp;
 		int n = students.size();
+		if (n = 0) {
+			throw runtime_error("invalibal size");
+		}
+		if (typeid(predicate(tmp) != typeid(T)) {
+			throw runtime_error("invalibal type");
+		}
 		for (step = n / 2; step > 0; step /= 2)
 			for (i = step; i < n; i++)
 			{
 				tmp = students[i];
 				for (j = i; j >= step; j -= step)
 				{
+					
 					if (compareStrings (predicate(tmp), predicate(students[j - step]))==-1)
 						students[j] = students[j - step];
 					else
