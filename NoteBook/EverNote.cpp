@@ -138,9 +138,7 @@ int i, j, step;
 		if (n = 0) {
 			throw runtime_error("invalibal size");
 		}
-		if (typeid(predicate(tmp) != typeid(T)) {
-			throw runtime_error("invalibal type");
-		}
+	
 		for (step = n / 2; step > 0; step /= 2)
 			for (i = step; i < n; i++)
 			{
