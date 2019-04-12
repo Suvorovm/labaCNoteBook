@@ -21,6 +21,7 @@ public:
 	bool IsEmpty();
 	void SortByNameStudents();
 
+	//делегирование
 	void SortStudents(T (*predicate)(Student<T>));//делегаты
 	void SortTeachers(T(*predicate)(Teacher<T>));
 

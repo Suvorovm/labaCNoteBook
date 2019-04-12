@@ -89,12 +89,16 @@ int main()
 	//}
 	Student<string> student(name, lastName,data,  group,phoneNumper);
 	EverNote<string> evertNote;
+
+
 	auto deleg = [](Student<string> student) {
 		return student.getName();//делегат
 	};
 	auto delegLastNameS = [](Student<string> student) {
 		return student.getLastName();
 	};
+
+
 	evertNote.AddStudent(student);
 	 for (size_t i = 0; i < 5; i++)
 		{
